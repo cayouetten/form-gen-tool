@@ -1,95 +1,93 @@
 //Form creation tool
-module.exports.generateForm = function(input){
+module.exports.generateForm = ((input)=>{
   //String variable to hold final form render
   var formStringHTML = '';
 
   //For each data in input array
-  input.forEach(function(input){
+  input.forEach((input) => {
     //Switch to determine & handle specific input type
-    switch(input.type){
+    switch(input.type.toLowerCase()){
       //LABEL
       case 'label':
+        //BEGIN output
         formStringHTML += '<label';
-        //Add 'for' attribute if ID is avail
-        input.id ? formStringHTML += ' for="' + input.id + '"></label>' : formStringHTML += '></label>';
+
+        //ADD attributes if present
+        formStringHTML += input.for ? ` for="${input.for}"` : ``;
+        formStringHTML += input.name ? ` name="${input.name}"` : ``;
+        formStringHTML += input.id ? ` id="${input.id}"` : ``;
+        formStringHTML += input.class ? ` class="${input.class}"` : ``;
+        formStringHTML += input.value ? ` value="${input.value}"` : ``;
+
+        //END output
+        formStringHTML += '></label>';
 
         break;
 
       //TEXT
       case 'text':
-        //BEGIN Input
         formStringHTML += '<input type="text"';
 
-        //ADD Attributes if present
-        input.name ? formStringHTML += ' name="' + input.name + '"' : formStringHTML += '';
-        input.id ? formStringHTML += ' id="' + input.id + '"' : formStringHTML += '';
-        input.class ? formStringHTML += ' class="' + input.class + '"' : formStringHTML += '';
-        input.value ? formStringHTML += ' value="' + input.value + '"' : formStringHTML += '';
-        input.required ? formStringHTML += ' required' : formStringHTML += '';
+        formStringHTML += input.name ? ` name="${input.name}"` : ``;
+        formStringHTML += input.id ? ` id="${input.id}"` : ``;
+        formStringHTML += input.class ? ` class="${input.class}"` : ``;
+        formStringHTML += input.value ? ` value="${input.value}"` : ``;
+        formStringHTML += input.required ? ` required "` : ``;
 
-        //END Input
         formStringHTML += '/>';
 
         break;
 
       //EMAIL
       case 'email':
-        //BEGIN Input
         formStringHTML += '<input type="email"';
 
-        //ADD Attributes if present
-        input.name ? formStringHTML += ' name="' + input.name + '"' : formStringHTML += '';
-        input.id ? formStringHTML += ' id="' + input.id + '"' : formStringHTML += '';
-        input.class ? formStringHTML += ' class="' + input.class + '"' : formStringHTML += '';
-        input.value ? formStringHTML += ' value="' + input.value + '"' : formStringHTML += '';
-        input.required ? formStringHTML += ' required' : formStringHTML += '';
+        formStringHTML += input.name ? ` name="${input.name}"` : ``;
+        formStringHTML += input.id ? ` id="${input.id}"` : ``;
+        formStringHTML += input.class ? ` class="${input.class}"` : ``;
+        formStringHTML += input.value ? ` value="${input.value}"` : ``;
+        formStringHTML += input.required ? ` required "` : ``;
 
-        //END Input
         formStringHTML += '/>';
 
         break;
 
       //PASSWORD
       case 'password':
-        //BEGIN Input
         formStringHTML += '<input type="password"';
 
-        //ADD Attributes if present
-        input.name ? formStringHTML += ' name="' + input.name + '"' : formStringHTML += '';
-        input.id ? formStringHTML += ' id="' + input.id + '"' : formStringHTML += '';
-        input.class ? formStringHTML += ' class="' + input.class + '"' : formStringHTML += '';
-        input.value ? formStringHTML += ' value="' + input.value + '"' : formStringHTML += '';
-        input.required ? formStringHTML += ' required' : formStringHTML += '';
+        formStringHTML += input.name ? ` name="${input.name}"` : ``;
+        formStringHTML += input.id ? ` id="${input.id}"` : ``;
+        formStringHTML += input.class ? ` class="${input.class}"` : ``;
+        formStringHTML += input.value ? ` value="${input.value}"` : ``;
+        formStringHTML += input.required ? ` required "` : ``;
 
-        //END Input
         formStringHTML += '/>';
 
         break;
 
       //SUBMIT
       case 'submit':
-        //BEGIN Input
         formStringHTML += '<input type="submit"';
 
-        //ADD Attributes if present
-        input.name ? formStringHTML += ' name="' + input.name + '"' : formStringHTML += '';
-        input.id ? formStringHTML += ' id="' + input.id + '"' : formStringHTML += '';
-        input.class ? formStringHTML += ' class="' + input.class + '"' : formStringHTML += '';
-        input.value ? formStringHTML += ' value="' + input.value + '"' : formStringHTML += '';
+        formStringHTML += input.name ? ` name="${input.name}"` : ``;
+        formStringHTML += input.id ? ` id="${input.id}"` : ``;
+        formStringHTML += input.class ? ` class="${input.class}"` : ``;
+        formStringHTML += input.value ? ` value="${input.value}"` : ``;
+        formStringHTML += input.required ? ` required "` : ``;
 
-        //END Input
         formStringHTML += '/>';
 
         break;
 
       //IF NONE OF ABOVE TYPES APPLY
-      case 'default':
+      default:
         //Show error
-        console.log('Invalid input type: '+ input.type +'. Choose from "label", "text", "email", "password", and "submit" and do not leave blank.');
+        console.log(`Invalid input type: "${input.type}". Choose from "label", "text", "email", "password", and "submit" and do not leave blank.`);
 
         break;
     }
   });
   //RETURN form string
   return formStringHTML;
-}
+});

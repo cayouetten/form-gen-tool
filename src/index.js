@@ -3,10 +3,11 @@ var formGen = require('./FormGenerator.js');
 var testInputs =[{
   type: 'label',
   name: 'label-name',
+  for: 'label-for',
   id: 'label-id',
   class: 'label-class',
   value: 'label-value',
-  required: false
+  //no REQUIRE
 },{
   type: 'text',
   name: 'text-name',
@@ -35,6 +36,20 @@ var testInputs =[{
   class: 'submit-class',
   value: 'submit-value',
   //no REQUIRE
+},{
+  type: 'no-type',
+  name: 'dummy-name',
+  //no ID
+  class: 'dummy-class',
+  //no VALUE
+  required: false
+},{
+  type: 'TEXT',
+  name: 'text-capital-name',
+  id: 'text-capital-id',
+  class: 'text-capital-class',
+  //no VALUE
+  required: true
 }]
 
 console.log('Form HTML Output: ', formGen.generateForm(testInputs));
