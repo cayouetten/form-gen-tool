@@ -53,4 +53,6 @@ const testInputs = [{
   required: true,
 }];
 
+// Ignore console.log fail for this app's purposes
+// eslint-disable-next-line no-console
 console.log('Form HTML Output: ', formGen.generateForm(testInputs));

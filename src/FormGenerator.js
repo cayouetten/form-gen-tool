@@ -83,6 +83,8 @@ module.exports.generateForm = ((inputs) => {
       // IF NONE OF ABOVE TYPES APPLY
       default:
         // Show error
+        // Ignore console.log fail for this app's purposes
+        // eslint-disable-next-line no-console
         console.log(`Invalid input type: "${input.type}". Choose from "label", "text", "email", "password", and "submit" and do not leave blank.`);
 
         break;
