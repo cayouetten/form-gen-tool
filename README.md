@@ -15,12 +15,12 @@
 
 ## Test
 
-* cd form-gen-tool
-* node ./src/index.js
+`cd form-gen-tool`
+`node ./src/index.js`
 
-### Getting started
+## Getting started
 
-* npm install
+`npm install`
 
 ### Usage
 
@@ -59,11 +59,32 @@ Supports types and attributes as follows:
 
 ### Example
 
+```javascript
 var inputArray = [{type:'email', name='user-email', id='user-email', class='user-email', value:'Your Email', required:'yes'}]
+```
 
-*outputs:
+outputs
+```html
 <input type='email' name='user-email' id='user-email' class='user-email' value:'Your Email' required/>
+```
 
+## Style Guide
+
+DWA Style Guide - extends AirBnB Style Guide
+	
+* ESLint
+	- https://github.com/standard/eslint-config-standard
+
+* mocha
+	- https://mochajs.org/#installation
+
+### Testing
+Install dependencies and then run
+
+```
+mocha
+```
+	
 ## Pull requests
 
 Your feedback is welcome!
