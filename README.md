@@ -18,7 +18,7 @@
 * cd form-gen-tool
 * node ./src/index.js
 
-### Getting started
+## Getting started
 
 * npm install
 
@@ -64,6 +64,16 @@ var inputArray = [{type:'email', name='user-email', id='user-email', class='user
 *outputs:
 <input type='email' name='user-email' id='user-email' class='user-email' value:'Your Email' required/>
 
+## Style Guide
+
+DWA Style Guide - extends AirBnB Style Guide
+	
+* ESLint
+	- https://github.com/standard/eslint-config-standard
+
+* mocha
+	- https://mochajs.org/#installation
+	
 ## Pull requests
 
 Your feedback is welcome!
